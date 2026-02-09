@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EjemploSingleton
+{
+    public class SingletonExample1
+    {
+        //los metodos staticos son los que no es necesario.
+        //crear una instancia de la clase para que pueda ser utilizada.
+        public static SingletonExample1 instancia;
+        public string nombre = "Daniel Tejada";
+        public Guid Id { get; set; }
+
+        //crear un contructor
+        //el constructor debe ser privado para evitar
+        //que se instancia desde afuera de la clase.
+        private SingletonExample1()
+        {
+            Id = Guid.NewGuid();
+
+            //que se ejecute a logica de activacion 
+        }    
+         //Se crea un metodo con el cual se va a verificar.
+         //si ya existe una instancia de la clase.
+
+        public static SingletonExample1 getisntance() {
+            if (instancia == null)
+            {
+                instancia = new SingletonExample1();
+
+            }
+            return instancia;
+        }
+    }
+}
